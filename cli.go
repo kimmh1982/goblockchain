@@ -1,30 +1,43 @@
 package main
 
 import (
+<<<<<<< Updated upstream
+=======
+	"flag"
+>>>>>>> Stashed changes
 	"fmt"
 	"log"
 	"os"
 	"strconv"
+<<<<<<< Updated upstream
 	"flag"
+=======
+>>>>>>> Stashed changes
 )
 
 type CLI struct{}
 
 func (cli *CLI) createBlockchain(address string) {
+<<<<<<< Updated upstream
 	if !ValidateAddress(address) {
 		log.Panic("ERROR: Address is not valid")
 	}
 
+=======
+>>>>>>> Stashed changes
 	bc := CreateBlockchain(address)
 	bc.db.Close()
 	fmt.Println("Done!")
 }
 
 func (cli *CLI) getBalance(address string) {
+<<<<<<< Updated upstream
 	if !ValidateAddress(address) {
 		log.Panic("ERROR: Address is not valid")
 	}
 
+=======
+>>>>>>> Stashed changes
 	bc := NewBlockchain(address)
 	defer bc.db.Close()
 
@@ -37,15 +50,24 @@ func (cli *CLI) getBalance(address string) {
 		balance += out.Value
 	}
 
+<<<<<<< Updated upstream
 	fmt.Printf("Balance of '%s': %d\n", address, balance);
+=======
+	fmt.Printf("Balance of '%s': %d\n", address, balance)
+>>>>>>> Stashed changes
 }
 
 func (cli *CLI) printUsage() {
 	fmt.Println("Usage:")
+<<<<<<< Updated upstream
 	fmt.Println("  createblockchain -address ADDRESS - Create a blockchain and send genesis block reward to ADDRESS")
 	fmt.Println("  createwallet - Generates a new key-pair and saves it into the wallet file")
 	fmt.Println("  getbalance -address ADDRESS - Get balance of ADDRESS")
 	fmt.Println("  listaddresses - Lists all addresses from the wallet file")
+=======
+	fmt.Println("  getbalance -address ADDRESS - Get balance of ADDRESS")
+	fmt.Println("  createblockchain -address ADDRESS - Create a blockchain and send genesis block reward to ADDRESS")
+>>>>>>> Stashed changes
 	fmt.Println("  printchain - Print all the blocks of the blockchain")
 	fmt.Println("  send -from FROM -to TO -amount AMOUNT - Send AMOUNT of coins from FROM address to TO")
 }
@@ -80,6 +102,7 @@ func (cli *CLI) printChain() {
 }
 
 func (cli *CLI) send(from, to string, amount int) {
+<<<<<<< Updated upstream
 	if !ValidateAddress(from) {
 		log.Panic("ERROR: Sender address is not valid")
 	}
@@ -87,6 +110,8 @@ func (cli *CLI) send(from, to string, amount int) {
 		log.Panic("ERROR: Recipient address is not valid")
 	}
 
+=======
+>>>>>>> Stashed changes
 	bc := NewBlockchain(from)
 	defer bc.db.Close()
 
